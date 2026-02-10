@@ -1,0 +1,29 @@
+---
+title: "Activities for 2/2"
+author: "Steph Krieger"
+format: html
+editor_options: 
+  chunk_output_type: inline
+---
+
+```{r}
+data <- mtcars
+dim(data)
+```
+#2
+number of observations and variables:
+  Observations:32
+  Variables:11
+what does each row represent: Each row represents a model of car and it's specs.
+A categorical and numerical variable: 
+  Categorical: Type of car (brand)
+  Numerical: MPG
+Information about the data set:extracted from the 1974 Motor Trend US Magazine. 10 aspects of automobile design and performance for car models (1973-74 models).
+
+```{r}
+library(tidyverse)
+mtcars |> select(mpg,hp)
+```
+#3
+Mathematical Operators: add, subtract, multiply, divide, square, square root, exponents, maybe fractions
+
