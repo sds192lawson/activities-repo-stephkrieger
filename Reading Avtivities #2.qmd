@@ -1,0 +1,24 @@
+---
+title: "Reading Assignment #2"
+author: "Steph Krieger"
+format: html
+editor_options: 
+  chunk_output_type: inline
+---
+
+Question #3:
+
+Find two graphs published in a newspaper or on the internent in the last year two years. 
+
+a. Identify a graphical display you find compelling. What aspects of the display work well, and how do these relate to the principles established in this chapter? Include a screen shot of the display along with your solution.
+
+![](https://www.reddit.com/r/dataisbeautiful/comments/1r21tdv/oc_if_you_exclude_healthcare_employment_the_us/#lightbox)
+
+I think this is a compelling graphic because of the use of the height cue. If the creater of the graph were to use a logarithmic scale I think the effect of how big the difference in increase of Healthcare workers compared to the decrease in workers in other fields it would be far less impactful. Another impactful cue used was color. Choosing to put only a few fields in color made it a much more clear and interesting graphic to see.
+
+
+b. Identify a graphical display that you find less than compelling. What aspects of the display don't work well? Are there ways that the display might be improved? Include a screen shot of the display along with your solution.
+
+![](https://www.reddit.com/r/dataisbeautiful/comments/1qimvpo/oc_google_openai_anthropic_xai_llm_coding/#lightbox)
+
+I find this graphic less compelling than the previous one because I think it is a little hard to understand and not very visually exciting. I do like the use of the color cue here as well, but I think it could benefit from maybe using a shape or area cue. Specifically, I think if the creater used the shape cue to give each Company a distinct shape (like triangle, square, circle) can help colorblind people understand the visual more. 
