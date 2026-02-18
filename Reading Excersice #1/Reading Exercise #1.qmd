@@ -1,0 +1,46 @@
+---
+title: "Reading Exercise #1"
+author: "Steph Krieger"
+format: html
+knitr: 
+  opts_chunk:
+    message: false
+    warning: false
+---
+
+## Questions
+
+# 1
+
+The code chunk given throws an error because the package "tidyverse" is not being called. In order to use the select () function, the code chunk must include "library (tidyverse)" before the "mtcars |> select (mpg, cyl)"
+
+# 3
+
+Given: 
+```{r}
+obj1 <- 2:10
+obj2 <- c(2, 5)
+obj3 <- c(TRUE, FALSE)
+obj4 <- 42
+```
+
+Questions and Answers:
+
+```{r}
+obj1 * 10
+obj1[2:4]
+obj1[-3]
+obj1 + obj2
+obj1 * obj3
+obj1 + obj4
+obj2 + obj3
+sum(obj2)
+sum(obj3)
+```
+
+
+
+
+
+
+

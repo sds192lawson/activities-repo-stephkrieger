@@ -1,0 +1,32 @@
+---
+title: "Activity for 1/30"
+author: "Steph Krieger"
+format: html
+---
+Questions:
+1. What is the unit of observation in this dataset? In other words, what does each row signify? How do you know?
+
+Each row signifies an urban park rangers response to an animal-related incident. I know this because the title of the dataset is "Urban Park Ranger Animal Condition Response." 
+
+2. How frequently is this dataset updated? How do you know?
+
+Because in the about section of the dataset it states that it was 'last updated' on February 5, 2026, I can assume this dataset is updated on a rolling bases.
+
+3. What are the possible values for the Species Status variable in this dataset? How do you know?
+
+The possible values for the Species Status are "Domestic" "Exotic" "Native" "Invasive" and "N/A." I know this because when I click on the Species Status variable and try to filter it, it tells me all the possible values I can choose from.
+
+4. What is the value at index [3, 3] in this dataset? How do you know?
+ 
+The value at index [3, 3] is "Brooklyn" which is the Borough a call came from on 7/30/2018. I know this because I counted down 3 rows on the dataset and over 3 columns. 
+
+5. Identify the index of one missing value in this dataset. How do you know?
+
+One missing value is at [12, 8]. I know this because on the dataset there is an N/A instead of a value.
+
+6. Identify one nominal variable, one ordinal variable, one discrete variable, and one continuous variable.
+
+Nominal: Borough 
+Ordinal: Species Status
+Discrete: Number of animals attended to
+Continuous: The amount of time spent responding
