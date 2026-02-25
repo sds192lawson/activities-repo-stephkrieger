@@ -1,0 +1,41 @@
+---
+title: "Activity for 2/16"
+author: "Steph Krieger"
+format: html
+editor_options: 
+  chunk_output_type: inline
+---
+
+```{r}
+library(ggplot2)
+```
+
+
+```{r}
+nba_data<-read.csv("nba2024.csv", header = T)
+```
+
+```{r}
+summary(nba_data$PTS)
+```
+
+```{r}
+ggplot(nba_data, aes(Age)) +
+  geom_histogram(fill = "dark green", color= "white", binwidth = 1) +
+  labs (title = "Age of NBA Players, 2024 Season") +
+  geom_vline(aes(xintercept = median(Age)), color = "red") 
+
+```
+
+The median (center) of this histogram is around 25 but the peak in the data seems to be around 24. It is unimodel but unsymetric, (right skew) so median is the prefered form of center. There seems to be a small cluster of athletes arounds age 35 but I still consider it unimodel and not bimodel.
+
+```{r}
+ggplot(nba_data,aes(x = Tm)) +
+  geom_bar(fill = "blue") +
+  labs(title = "Number of Athletes on each NBA Team, 2024 Season") +
+  coord_flip() +  
+  xlab("NBA Team") +
+  ylab("Number of Athletes")
+
+```
+This bar plot shows the number of athletes on each NBA team, there is roughly the same amount per team, but TOT seems to have a significant higher amount. "TOT" stands for total, which is charecterized when a player plays for two different teams in a season. Roughly 80 NBA players played for two different teams this season.
