@@ -1,0 +1,41 @@
+---
+title: "Activity for 3/2"
+author: "Steph Krieger"
+format: html
+editor_options: 
+  chunk_output_type: inline
+---
+```{r}
+library(tidyverse)
+data(midwest)
+```
+
+```{r}
+midwest |> select(county, state, poppovertyknown, percprof, inmetro) 
+```
+```{r}
+midwest |> select(county, state, poppovertyknown, percprof, inmetro) |> arrange(desc(percprof)) 
+```
+
+```{r}
+midwest |> select(county, state, poppovertyknown, percprof, inmetro) |> filter(inmetro == "0" & percprof < 5)
+```
+
+```{r}
+midwest |>
+  mutate(popProf = poptotal/percprof) |>
+  select(county, state, popProf)
+```
+
+```{r}
+midwest |>
+  group_by(state) |>
+  summarise(
+    n_counties = n(),
+    total_population = sum(poptotal, na.rm = TRUE),
+    median_poverty_known = median(poppovertyknown, na.rm = TRUE),
+    prop_metro = mean(inmetro, na.rm = TRUE)
+  )
+```
+
+

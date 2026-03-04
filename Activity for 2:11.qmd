@@ -1,0 +1,82 @@
+---
+title: "Activity for 2/11"
+author: "Steph Krieger"
+format: html
+editor_options: 
+  chunk_output_type: inline
+---
+
+Trying out what I learned in the lecture:
+
+```{r}
+library(ggplot2)
+library(tidyverse)
+pioneer_valley_census_data <- read.csv("https://raw.githubusercontent.com/SDS-192-Intro/SDS-192-public-website/main/slides/datasets/pioneer_valley_census.csv")
+hampshire_census_data <- pioneer_valley_census_data %>% 
+  filter(COUNTY == "Hampshire")
+```
+
+```{r}
+ggplot(hampshire_census_data,aes(x = COMMUNITY, y = CEN_EARLYED, fill = CEN_POVRATE)) + 
+  geom_col(width = 0.98) +
+  geom_col()  +
+  scale_fill_gradient(low = "grey", high = "blue") +
+  coord_flip() +
+  theme_minimal()  +
+  labs(title = "Hampshire County Early Education Enrollment Rates, 2018",
+       fill = "Poverty Rate") +
+  xlab("Enrollment Rate for 3-4 yr old") +
+  ylab("Municipality in Hampshire County, MA")
+  
+```
+
+Activity!
+
+```{r}
+library(ggplot2)
+housing <- read.csv("https://jericholawson.github.io/classes/sds192/s26/data/housing.csv")
+```
+
+20640 Observations and 10 Variables.
+
+Numerical: Longitude, Latitude, housing_median_age, total_rooms, total_bedrooms, population, households, median_income, median_house_value
+Categorical: ocean_proximity
+
+```{r}
+ggplot(housing,aes(x = ocean_proximity)) +
+  geom_bar()  +
+  labs(title = "Frequencies of Groups of Ocean Proximity for California Districts, 1990") + 
+  xlab("Ocean Proximity") +
+  ylab ("Frequency")
+```
+
+```{r}
+ggplot(housing,aes(x = ocean_proximity, fill = ocean_proximity)) +
+  geom_bar()  +
+  scale_fill_brewer(palette = "BrBG") +
+  labs(title = "Frequencies of Groups of Ocean Proximity for California Districts, 1990", fill = "Ocean Preximity") + 
+  xlab("Ocean Proximity") +
+  ylab ("Frequency") 
+```
+
+```{r}
+ggplot(housing,aes(x = ocean_proximity, y = median_income, fill = ocean_proximity)) +
+  geom_boxplot()  +
+  scale_y_continuous() +
+  labs(title = "Distrubution of Median Household Income (in 1000s) by Ocean Proximity for California Districts, 1990", fill = "Ocean Preximity") + 
+  xlab("Ocean Proximity") +
+  ylab ("Median Income (1000s)") 
+```
+
+```{r}
+ggplot(housing,aes(x = ocean_proximity, y = median_income, fill = ocean_proximity)) +
+  geom_violin()  +
+  scale_y_continuous() +
+  labs(title = "Distrubution of Median Household Income (in 1000s) by Ocean Proximity for California Districts, 1990", fill = "Ocean Preximity") + 
+  xlab("Ocean Proximity") +
+  ylab ("Median Income (1000s)") 
+```
+
+
+
+

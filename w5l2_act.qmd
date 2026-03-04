@@ -1,0 +1,40 @@
+---
+title: "Activity 2/25"
+author: "Steph Krieger"
+format: html
+editor_options: 
+  chunk_output_type: inline
+---
+
+```{r}
+library(mlbench)
+library(ggplot2)
+data(BostonHousing2)
+```
+
+```{r}
+ggplot(BostonHousing2, aes(x = zn, y = medv)) +
+  geom_point(size = 0.5, position = position_jitter(width = 0.1, height = 0.1, seed = 0)) + 
+  theme_minimal() +
+  labs(x = "Prop. of Residential Land Zoned for Lots > 25,000 Sq. Ft.",
+       y = "Median Value of Owner-Occupied Homes ($1000s)",
+       title = "Prop. of Residential Land Zoned for Large Lots vs. Median Value\nof Owner-Occupied Homes in Boston Census Tracts, 1970")
+```
+
+Activity:
+
+```{r}
+ggplot(BostonHousing2, aes(x = medv, y = chas)) +
+  geom_boxplot(alpha = 0.3) + theme_classic() +
+  labs(x = "Median Values of Owner-Occupied Homes in USD 1000s", 
+       y = "Near Charles River or Not",
+       title = "Median Values of Owner-Occupied Homes for Houses \nNear the Charles and Not") + 
+  theme(plot.title = element_text(color = "blue", hjust = 0.5))
+```
+
+```{r}
+library(dplyr)
+library(tidyverse)
+data(midwest)
+```
+

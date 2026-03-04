@@ -1,0 +1,70 @@
+---
+title: "Activity for 2/18"
+author: "Steph Krieger"
+format: html
+editor_options: 
+  chunk_output_type: inline
+---
+```{r}
+library(mlbench)
+library(ggplot2)
+data(BostonHousing2)
+```
+
+```{r}
+ggplot(BostonHousing2, aes(x = tax, y = chas)) +
+  geom_boxplot(fill = "light blue", color = "black") + theme_bw()  + 
+labs(x = "Full-value Property-Tax Rate ($10,000s)", y = "Next to Charles River?")
+
+
+summary(BostonHousing2$tax)
+```
+
+```{r}
+ggplot(BostonHousing2, aes(x = medv, y = chas)) +
+  geom_boxplot() + theme_classic() +
+  labs(x = "Median Value of Owner-Occupied Homes ($1000s)",
+       y = "Next to Charles River?",
+       title = "Median Value of Owner-Occupied Homes (in $1000s)\nin Boston Census Tracts Near Charles River, 1970")
+```
+
+```{r}
+lakes = data.frame(year = 1875:1972, level = as.numeric(LakeHuron))
+
+ggplot(lakes, aes(x = year, y = level)) + 
+  geom_line() +
+  theme_minimal() +
+  labs(title = "Levels (in ft) on Lake Huron, 1875-1972") +
+  ylab("Level (ft)") +
+  xlab("Year")
+```
+
+
+
+```{r}
+ggplot(BostonHousing2, aes(x = nox, y = medv)) +
+  geom_point(alpha = 0.3) + theme_minimal() +
+  labs(x = "Nitric Oxide Concentration (parts per 10mil)",
+       y = "Median Value of Owner-Occupied Homes ($1000s)",
+       title = "Nitric Oxide Concentration vs. Median Value of Owner-Occupied Homes\nin Boston Census Tracts, 1970") +
+  geom_smooth(method = "lm") + 
+  annotate("label", x = 0.8, y = 50, size = 3, 
+           label = paste("Corr.", round(cor(BostonHousing2$nox, BostonHousing2$medv), 3)), color = "red", fontface = "bold")
+```
+
+```{r}
+cor(BostonHousing2$nox, BostonHousing2$medv)
+```
+
+
+```{r}
+ggplot(BostonHousing2, aes(x = age, y = zn)) +
+  geom_point(alpha = 0.4) + theme_bw() +
+  labs(x = "Proportion of Owner-Occupiod Units Built Prior to 1940",
+       y = "Proportion of Residential Land Zones for Lots Over 25,000 sq.ft",
+       title = "Owner-Occupiod Units Built Prior to 1940 vs. Residential Land Zone for Lots Over\n25,000 sq.ft in Boston Census Tracts, 1970") +
+  geom_smooth(method = "lm", color = "red") + 
+  annotate("label", x = 0.8, y = 50, size = 3, 
+           label = paste("Corr.", round(cor(BostonHousing2$age, BostonHousing2$zn), 3)), color = "red", fontface = "bold")
+```
+
