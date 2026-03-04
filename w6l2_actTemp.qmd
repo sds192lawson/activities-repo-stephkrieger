@@ -48,7 +48,8 @@ wnba1 <- read.csv("wnba1.csv")
 wnbaStars <- read.csv("wnbaStars.csv")
 
 wnba2 |> inner_join(wnbaStars, by = c("Player" = "Player", "Team" = "Team")) |>
-  select(Player, PTS, AST, Team, ORB) 
+  select(Player, PTS, AST, Team, ORB) |>
+  nrow()
 ```
 
 :::
@@ -105,7 +106,7 @@ Merge the `wnba1` and `wnba2` datasets together. Using code from the activity in
 - Median TOV
 
 ```{r}
-wnba1 |> full_join(wnba2, by = c("Player" = "Player", "TOV" = "TOV", "PTS" = "PTS", "Team" = "Team", "AST" = "AST")) |>
+wnba1 |> rbind(wnba2) |>
   select(Player, PTS, AST, Team, TOV) |>
   summarise(numplayers = n(),
             medianpts = median(PTS),
