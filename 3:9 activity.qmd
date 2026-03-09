@@ -1,0 +1,73 @@
+---
+title: "3/9 Activity"
+author: "Steph Krieger"
+format: html
+editor: visual
+editor_options: 
+  chunk_output_type: inline
+---
+
+```{r}
+library(tidyverse)
+wnba1 <- read.csv("wnba1.csv")
+wnba2 <- read.csv("wnba2.csv")
+wnbaStars <- read.csv("wnbaStars.csv")
+```
+
+Exercise #1
+```{r}
+wnba1Ref <- wnba1|>
+  rbind(wnba2) |>
+  filter(GS > 20) |>
+  mutate(TOV = case_when(TOV < 2 ~ "protective", TOV >= 2 ~ "careless")) |>
+  select(Player, Team, Pos, PTS, TRB, AST, TOV) |>
+  print()
+  
+```
+
+Excersice #2
+```{r}
+wnbaStars|>
+  filter(Team %in% c("PHO","SEA")) |>
+  arrange(Player)
+```
+
+Excersice #3
+```{r}
+wnba1Ref|>
+  filter(Team %in% c("IND", "NYL", "LAS")) |>
+  group_by(Team, Pos) |>
+  summarise(count = n(),
+            avgpts = mean(PTS),
+            avgast = mean (AST),
+            avgrbd = mean(TRB))
+```
+
+Exersice #4
+
+```{r}
+wnba1|>
+  anti_join(wnba1Ref, by = "Player") |>
+  group_by(Pos) |>
+  summarise(count = n(),
+            AvgPts = mean(PTS),
+            propLowTOV = mean(TOV < 1))
+```
+
+
+Excersice #5:
+
+```{r}
+wnba1|>
+  inner_join(wnbaStars, by = c("Player" = "Player", "Team" = "Team")) |>
+  group_by(Team) |>
+  summarise(count = n(),
+            maxpoints = max(PTS),
+            propGuards = mean (Pos == "G")) |>
+  filter(maxpoints > 22)
+```
+
+
+
+
+
