@@ -30,7 +30,8 @@ SOURCEDATE, VAL_DATE, CREATION_DATE, EDIT_DATE should all be dates
 sapply(prisons, typeof)
 ```
 
-Question #5: 
+Question #5:
+
 ```{r}
 as.character(prisons$FID)
 as.character(prisons$NAICS_CODE)
@@ -47,8 +48,3 @@ prisons <- prisons |>
 prisons <- prisons |>
   mutate(CreationDate = ydm_hms(CreationDate))
 ```
-
-
-
-
-
