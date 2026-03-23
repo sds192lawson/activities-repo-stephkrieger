@@ -1,0 +1,54 @@
+---
+title: "Activity 3/23"
+author: "Steph Krieger"
+format: html
+editor: visual
+editor_options: 
+  chunk_output_type: inline
+---
+
+```{r}
+library(tidyverse)
+prisons <- read.csv("Prison_Boundaries.csv")
+```
+
+```{r}
+x1 <- c(1, 2, 3, 4, 5)
+x2 <- c("a", "b", "c", "d", "e")
+x3 <- c(TRUE, FALSE, FALSE, TRUE, FALSE)
+
+mean(x2 + x3)
+```
+
+Question #4:
+
+FID, FACILITYID, ZIP, ZIP4, COUNTYFIPS, NAICS_CODE should all be charecters
+
+SOURCEDATE, VAL_DATE, CREATION_DATE, EDIT_DATE should all be dates
+
+```{r}
+sapply(prisons, typeof)
+```
+
+Question #5: 
+```{r}
+as.character(prisons$FID)
+as.character(prisons$NAICS_CODE)
+```
+
+Question #6:
+
+```{r}
+library(lubridate)
+
+prisons <- prisons |>
+  mutate(EditDate = ydm_hms(EditDate))
+
+prisons <- prisons |>
+  mutate(CreationDate = ydm_hms(CreationDate))
+```
+
+
+
+
+
