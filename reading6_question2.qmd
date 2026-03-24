@@ -1,0 +1,20 @@
+---
+title: "Reading #6"
+author: "Steph Krieger"
+format: html
+editor: visual
+editor_options: 
+  chunk_output_type: inline
+---
+
+Question #2:
+
+Personally I prefer to write my code not nested on a single line because I find it easier to follow. When it is nested on a single line it can feel confusing rather than just a series of steps I have to follow.
+
+```{r}
+library(tidyverse)
+
+mtcars |> filter(cyl == 4) |> select(mpg, cyl) 
+
+```
+
