@@ -1,0 +1,66 @@
+---
+title: "Activities from Week 10, Lecture 1: Data Ethics"
+subtitle: "SDS 192: Introduction to Data Science"
+author: "Steph Krieger"
+---
+
+## Introduction
+
+We've discussed some ideas regarding data ethics. With those around you, you will discuss your thoughts on the video and answer questions regarding two different articles.
+
+## Carissa Véliz: How privacy can save your life
+
+You've just watched a TEDTalk from Carissa Véliz about how data privacy should be used to protect your livelihood. You can access the video for reference [here](https://www.youtube.com/watch?v=xSPRouBvgFE).
+
+After talking to others about the video, answer the following questions below:
+
+::: {.callout-important}
+###### Q1
+
+What are some important ideas that Carissa Véliz talked about in the video? What are your thoughts to some of the examples she used and her perspective?
+
+I thought Carissa Véliz's example of the paper book compared to an online reading device was a good example to showcase how ordinary things have become made into devices that can track our information. Additionally the statistic about how many Jewish people were found in WW2 due to data tracking did a really good job highlighting the importance of privacy.
+
+:::
+
+## Your data is diminishing your freedom
+
+Read the New York Times article "Your Data is Diminishing Your Freedom" at the following link [here](https://www.nytimes.com/interactive/2023/03/20/magazine/colin-koopman-interview.html). After discussing your thoughts on the piece, answer the following questions:
+
+::: {.callout-important}
+###### Q2
+
+What does it mean that "we have become our own data?" How does that sentiment affect your personal decision-making, and how we define ourselves?
+
+This statement reflects how their is so much of us online and out there through surveys we have completed or just our data/information being tracked that we are not just our personality and appearance but also that we are also our online presence as well. This makes me just want to think twice before relying so heavily on devices and just puts into perspective how mucch is tracked.
+
+:::
+
+::: {.callout-important}
+###### Q3
+
+Using the article as support, what are some concerns you personally have about the use of your data? 
+
+While reading this article, at the bottom where the ads are almost all of my ads were about bikes, which I have been shopping for the past few days. This felt fitting while reading this article because it really put into perspective how everything I search and do on my computer is tracked and followed. I don't really have any specific ocncerns about how my data could be used but I am uncomfortable with the fact that my data is being tracked and followed for even simple things like shopping.
+
+:::
+
+## Federal Data Strategy
+
+The U.S. Government has a Federal Data Strategy with the hopes of defining how to use data to serve the public and steward resources while "protecting security, privacy, and confidentiality."
+
+You will read page 4 of the Data Ethics Framework based on the strategy [here](https://resources.data.gov/assets/documents/fds-data-ethics-framework.pdf). After discussing your thoughts on the piece, answer the following questions:
+
+
+::: {.callout-important}
+###### Q4
+
+Discuss examples about how a government (or smaller body) could execute a data ethics tenet of your choice.
+
+I think one way a smaller body could execute a data ethics tenet would be for apps/websites to clearly state how the data they are obtaining is being used. This would connect with the data ethics tenet "Promote Transparency" and allow for people to be informed about how their information is being used to they can make their own decision whether to continue using that platform or not. 
+
+:::
+
+## Turn-in
+
+Save the .qmd file inside your activities repository. Please stage, commit, and push to GitHub.
