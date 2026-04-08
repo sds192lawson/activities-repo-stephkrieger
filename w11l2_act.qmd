@@ -1,0 +1,58 @@
+---
+title: "w11l2_act.qmd"
+author: "Steph Krieger"
+format: html
+editor: visual
+editor_options: 
+  chunk_output_type: inline
+---
+```{r}
+library(mlbench)
+library(tidyverse)
+data(BostonHousing2)
+```
+
+```{r}
+BHsmall <- BostonHousing2 |> 
+  select(medv, crim, nox, indus) |>
+  slice(1:5)
+```
+
+```{r}
+outliers <- function(x) {
+
+# Step 1: Find Q1, Q3, and the IQR
+quarts <- quantile(x, probs = c(0.25, 0.75))
+iqr <- quarts[2] - quarts[1]
+
+# Step 2: Find the bounds
+ub <- quarts[2] + 1.5 * iqr
+lb <- quarts[1] - 1.5 * iqr
+
+# Step 3: Show the outliers
+inds <- which(x < lb | x > ub)
+BHsmall |> slice(inds) |>  head(3)
+
+}
+```
+
+
+```{r}
+for(item in BHsmall){
+  print(outliers(item))
+}
+```
+
+```{r}
+BHsmall |>
+  map(mean)
+```
+```{r}
+sub_two_vectors <- function(x, y){
+  x - y
+}
+
+map2(BHsmall$medv, BHsmall$indus, sub_two_vectors)
+  
+```
+
