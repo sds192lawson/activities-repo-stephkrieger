@@ -154,12 +154,12 @@ leaflet() |>
                    radius = 5,
                    stroke = FALSE,
                    fillOpacity = 2,
-                   fillColor = ~pal_numeric(ADT_029)) |>
+                   fillColor = ~pal_quant(ADT_029)) |>
 
 
 addLegend(data = nbi_ma,
             title = "Annual Daily Traffic of Bridges, 2024", 
-            pal = pal_numeric, 
+            pal = pal_quant, 
             values = ~ADT_029)
 ```
 
