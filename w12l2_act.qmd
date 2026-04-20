@@ -1,0 +1,39 @@
+---
+title: "apr15 class"
+author: "Steph Krieger"
+format: html
+editor: visual
+editor_options: 
+  chunk_output_type: inline
+---
+```{r}
+library(tidyverse)
+library(leaflet)
+library(tidycensus)
+library(RColorBrewer)
+library(sf)
+
+# Coordinates
+nyc_311_xy <- read_csv("https://data.cityofnewyork.us/resource/erm2-nwe9.csv?$select=x_coordinate_state_plane,y_coordinate_state_plane&$where=complaint_type=%27Missed%20Collection%27%20AND%20date_trunc_ymd(created_date)=%272021-10-01%27&$limit=400")
+
+# Rodent Data
+nyc_311_rodent <- read_csv("https://data.cityofnewyork.us/resource/erm2-nwe9.csv?$where=complaint_type=%27Rodent%27%20AND%20date_trunc_ymd(created_date)=%272022-04-04%27") |>
+  filter(!is.na(longitude)) |>
+  st_as_sf(coords = c("longitude", "latitude"), crs = 3857) 
+nyc_311_litter <- read_csv("https://data.cityofnewyork.us/resource/erm2-nwe9.csv?$where=complaint_type=%27Litter%20Basket%20Complaint%27%20AND%20date_trunc_ymd(created_date)=%272022-04-04%27") |>
+  filter(!is.na(longitude)) |>
+  st_as_sf(coords = c("longitude", "latitude"), crs = 3857) 
+```
+
+```{r}
+leaflet() |>
+  setView(lat = 40.7, lng = -74.0, zoom = 10) |> 
+  addProviderTiles("OpenTopoMap") |>
+  addCircleMarkers(data = nyc_311_rodent,
+                   fillColor = "black") |>
+  addCircleMarkers(data = nyc_311_litter,
+                   fillColor = "purple",)
+```
+
+
+

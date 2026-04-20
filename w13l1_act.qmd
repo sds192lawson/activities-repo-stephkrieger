@@ -1,0 +1,20 @@
+---
+title: "w13l1_act"
+author: "Steph Krieger"
+format: html
+editor: visual
+editor_options: 
+  chunk_output_type: inline
+---
+
+Question 1: st_as_sf()
+
+Question 2: st_transform()
+
+Question 3: WGF-84
+
+```{r}
+library(sf)
+nyc_cd <- st_read("nycd_25b/nycd.shp")
+```
+

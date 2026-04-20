@@ -1,0 +1,40 @@
+---
+title: "mar25_activity"
+author: "Steph Krieger"
+format: html
+editor: visual
+editor_options: 
+  chunk_output_type: inline
+---
+```{r}
+library(tidyverse)
+USAccDeaths
+```
+
+```{r}
+deaths <- as.data.frame(matrix(USAccDeaths, nrow = 6, ncol = 12, byrow = T))
+deaths <- deaths |> 
+  mutate(year = 1973:1978) |>
+  rename("jan" = V1, "feb" = V2, "mar" = V3,
+         "apr" = V4, "may" = V5, "jun" = V6,
+         "jul" = V7, "aug" = V8, "sep" = V9,
+         "oct" = V10, "nov" = V11, "dec" = V12) |>
+  relocate(year)
+```
+
+```{r}
+deaths_longer <- deaths|> pivot_longer(cols = -year,
+                       names_to = "Month",
+                       values_to = "Deaths"
+)
+
+deaths_longer <- deaths_longer |>
+  mutate(Month = factor(Month, ordered = T))
+```
+
+```{r}
+deaths_wider <- deaths_longer |> pivot_wider(names_from = "Month", values_from = "Deaths")
+```
+
+
+

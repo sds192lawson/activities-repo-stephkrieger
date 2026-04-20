@@ -1,0 +1,62 @@
+---
+title: "apr 6 activity"
+author: "Steph Krieger"
+format: html
+editor: visual
+editor_options: 
+  chunk_output_type: inline
+---
+```{r}
+library(mlbench)
+library(tidyverse)
+data(BostonHousing2)
+```
+
+Question: What data object can be used to store objects of different types?
+
+Answer: A list
+
+```{r}
+outliers <- function(var, probs = c(0.25, 0.75)) {
+
+# Step 1: Find Q1, Q3, and the IQR
+quarts <- quantile(var, probs = probs)
+iqr <- quarts[2] - quarts[1]
+
+# Step 2: Find the bounds
+ub <- quarts[2] + 1.5 * iqr
+lb <- quarts[1] - 1.5 * iqr
+
+# Step 3: Show the outliers
+inds <- which(var < lb | var > ub)
+BostonHousing2 |> slice(inds) |>  head(3)
+
+}
+```
+
+```{r}
+BostonHousing2 |>
+  select (medv, crim, zn, indus) |>
+  map(outliers)
+```
+```{r}
+boxplot <- function(var) {
+  ggplot(BostonHousing2, aes(x = var)) +
+    geom_boxplot()
+}
+
+boxplot(BostonHousing2$lat)
+```
+
+```{r}
+topobservations <- function(var) {
+  BostonHousing2[order(BostonHousing2[[x]], decreaing = T)[1:3], ]
+  
+}
+
+topobservations("medv")
+```
+
+
+
+
